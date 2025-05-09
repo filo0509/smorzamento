@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic and Linear Damping Analysis Plots</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        .category {
+            margin-bottom: 40px;
+        }
+        .plots-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .plot-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .plot-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .plot-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+        .plot-info {
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        .plot-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .plot-desc {
+            font-size: 0.9em;
+            color: #666;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .nav {
+            background-color: #2c3e50;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            z-index: 100;
+        }
+        .nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        .nav li {
+            margin-right: 15px;
+        }
+        .nav a {
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+        }
+        .nav a:hover {
+            background-color: #3498db;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #777;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quadratic and Linear Damping Analysis Plots</h1>
+    
+    <div class="nav">
+        <ul>
+            <li><a href="#top">Top</a></li>
+            <li><a href="#amplitude_decay">Amplitude Decay</a></li>
+            <li><a href="#full_oscillation">Full Oscillation</a></li>
+            <li><a href="#model_comparison">Model Comparison</a></li>
+            <li><a href="#other">Other</a></li>
+            <li><a href="#raw_data">Raw Data</a></li>
+            <li><a href="#residuals">Residuals</a></li>
+        </ul>
+    </div>
+    
+    <p>
+        This page provides an overview of all generated plots for the damping analysis project. 
+        The plots are organized by type and show comparisons between quadratic damping (perforated disk)
+        and linear damping (solid disk) models.
+    </p>
+
+    <div class="category" id="amplitude_decay">
+        <h2>Amplitude Decay (12 plots)</h2>
+        <div class="plots-container">
+
+            <a href="plots/amplitude_decay/linear_damping_01_amplitude_decay.png" target="_blank" class="plot-card">
+                <img src="plots/amplitude_decay/linear_damping_01_amplitude_decay.png" alt="Linear Damping 01 Amplitude Decay" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 01 Amplitude Decay</div>
+                    <div class="plot-desc">Linear Damping #01</div>
+                </div>
+            </a>
+
+            <a href="plots/amplitude_decay/linear_damping_02_amplitude_decay.png" target="_blank" class="plot-card">
+                <img src="plots/amplitude_decay/linear_damping_02_amplitude_decay.png" alt="Linear Damping 02 Amplitude Decay" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 02 Amplitude Decay</div>
+                    <div class="plot-desc">Linear Damping #02</div>
+                </div>
+            </a>
+
+            <a href="plots/amplitude_decay/linear_damping_07_amplitude_decay.png" target="_blank" class="plot-card">
+                <img src="plots/amplitude_decay/linear_damping_07_amplitude_decay.png" alt="Linear Damping 07 Amplitude Decay" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 07 Amplitude Decay</div>
+                    <div class="plot-desc">Linear Damping #07</div>
+                </div>
+            </a>
+
+            <a href="plots/amplitude_decay/linear_damping_08_amplitude_decay.png" target="_blank" class="plot-card">
+                <img src="plots/amplitude_decay/linear_damping_08_amplitude_decay.png" alt="Linear Damping 08 Amplitude Decay" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 08 Amplitude Decay</div>
+                    <div class="plot-desc">Linear Damping #08</div>
+                </div>
+            </a>
+
+            <a href="plots/amplitude_decay/quadratic_damping_02_amplitude_decay.png" target="_blank" class="plot-card">
+                <img src="plots/amplitude_decay/quadratic_damping_02_amplitude_decay.png" alt="Quadratic Damping 02 Amplitude Decay" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 02 Amplitude Decay</div>
+                    <div class="plot-desc">Quadratic Damping #02</div>
+                </div>
+            </a>
+
+            <a href="plots/amplitude_decay/quadratic_damping_03_amplitude_decay.png" target="_blank" class="plot-card">
+                <img src="plots/amplitude_decay/quadratic_damping_03_amplitude_decay.png" alt="Quadratic Damping 03 Amplitude Decay" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 03 Amplitude Decay</div>
+                    <div class="plot-desc">Quadratic Damping #03</div>
+                </div>
+            </a>
+
+            <a href="plots/amplitude_decay/quadratic_damping_04_amplitude_decay.png" target="_blank" class="plot-card">
+                <img src="plots/amplitude_decay/quadratic_damping_04_amplitude_decay.png" alt="Quadratic Damping 04 Amplitude Decay" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 04 Amplitude Decay</div>
+                    <div class="plot-desc">Quadratic Damping #04</div>
+                </div>
+            </a>
+
+            <a href="plots/amplitude_decay/quadratic_damping_05_amplitude_decay.png" target="_blank" class="plot-card">
+                <img src="plots/amplitude_decay/quadratic_damping_05_amplitude_decay.png" alt="Quadratic Damping 05 Amplitude Decay" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 05 Amplitude Decay</div>
+                    <div class="plot-desc">Quadratic Damping #05</div>
+                </div>
+            </a>
+
+            <a href="plots/amplitude_decay/quadratic_damping_06_amplitude_decay.png" target="_blank" class="plot-card">
+                <img src="plots/amplitude_decay/quadratic_damping_06_amplitude_decay.png" alt="Quadratic Damping 06 Amplitude Decay" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 06 Amplitude Decay</div>
+                    <div class="plot-desc">Quadratic Damping #06</div>
+                </div>
+            </a>
+
+            <a href="plots/amplitude_decay/quadratic_damping_07_amplitude_decay.png" target="_blank" class="plot-card">
+                <img src="plots/amplitude_decay/quadratic_damping_07_amplitude_decay.png" alt="Quadratic Damping 07 Amplitude Decay" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 07 Amplitude Decay</div>
+                    <div class="plot-desc">Quadratic Damping #07</div>
+                </div>
+            </a>
+
+            <a href="plots/amplitude_decay/quadratic_damping_08_amplitude_decay.png" target="_blank" class="plot-card">
+                <img src="plots/amplitude_decay/quadratic_damping_08_amplitude_decay.png" alt="Quadratic Damping 08 Amplitude Decay" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 08 Amplitude Decay</div>
+                    <div class="plot-desc">Quadratic Damping #08</div>
+                </div>
+            </a>
+
+            <a href="plots/amplitude_decay/quadratic_damping_09_amplitude_decay.png" target="_blank" class="plot-card">
+                <img src="plots/amplitude_decay/quadratic_damping_09_amplitude_decay.png" alt="Quadratic Damping 09 Amplitude Decay" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 09 Amplitude Decay</div>
+                    <div class="plot-desc">Quadratic Damping #09</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="category" id="full_oscillation">
+        <h2>Full Oscillation (12 plots)</h2>
+        <div class="plots-container">
+
+            <a href="plots/full_oscillation/linear_damping_01_full_oscillation.png" target="_blank" class="plot-card">
+                <img src="plots/full_oscillation/linear_damping_01_full_oscillation.png" alt="Linear Damping 01 Full Oscillation" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 01 Full Oscillation</div>
+                    <div class="plot-desc">Linear Damping #01</div>
+                </div>
+            </a>
+
+            <a href="plots/full_oscillation/linear_damping_02_full_oscillation.png" target="_blank" class="plot-card">
+                <img src="plots/full_oscillation/linear_damping_02_full_oscillation.png" alt="Linear Damping 02 Full Oscillation" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 02 Full Oscillation</div>
+                    <div class="plot-desc">Linear Damping #02</div>
+                </div>
+            </a>
+
+            <a href="plots/full_oscillation/linear_damping_07_full_oscillation.png" target="_blank" class="plot-card">
+                <img src="plots/full_oscillation/linear_damping_07_full_oscillation.png" alt="Linear Damping 07 Full Oscillation" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 07 Full Oscillation</div>
+                    <div class="plot-desc">Linear Damping #07</div>
+                </div>
+            </a>
+
+            <a href="plots/full_oscillation/linear_damping_08_full_oscillation.png" target="_blank" class="plot-card">
+                <img src="plots/full_oscillation/linear_damping_08_full_oscillation.png" alt="Linear Damping 08 Full Oscillation" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 08 Full Oscillation</div>
+                    <div class="plot-desc">Linear Damping #08</div>
+                </div>
+            </a>
+
+            <a href="plots/full_oscillation/quadratic_damping_02_full_oscillation.png" target="_blank" class="plot-card">
+                <img src="plots/full_oscillation/quadratic_damping_02_full_oscillation.png" alt="Quadratic Damping 02 Full Oscillation" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 02 Full Oscillation</div>
+                    <div class="plot-desc">Quadratic Damping #02</div>
+                </div>
+            </a>
+
+            <a href="plots/full_oscillation/quadratic_damping_03_full_oscillation.png" target="_blank" class="plot-card">
+                <img src="plots/full_oscillation/quadratic_damping_03_full_oscillation.png" alt="Quadratic Damping 03 Full Oscillation" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 03 Full Oscillation</div>
+                    <div class="plot-desc">Quadratic Damping #03</div>
+                </div>
+            </a>
+
+            <a href="plots/full_oscillation/quadratic_damping_04_full_oscillation.png" target="_blank" class="plot-card">
+                <img src="plots/full_oscillation/quadratic_damping_04_full_oscillation.png" alt="Quadratic Damping 04 Full Oscillation" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 04 Full Oscillation</div>
+                    <div class="plot-desc">Quadratic Damping #04</div>
+                </div>
+            </a>
+
+            <a href="plots/full_oscillation/quadratic_damping_05_full_oscillation.png" target="_blank" class="plot-card">
+                <img src="plots/full_oscillation/quadratic_damping_05_full_oscillation.png" alt="Quadratic Damping 05 Full Oscillation" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 05 Full Oscillation</div>
+                    <div class="plot-desc">Quadratic Damping #05</div>
+                </div>
+            </a>
+
+            <a href="plots/full_oscillation/quadratic_damping_06_full_oscillation.png" target="_blank" class="plot-card">
+                <img src="plots/full_oscillation/quadratic_damping_06_full_oscillation.png" alt="Quadratic Damping 06 Full Oscillation" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 06 Full Oscillation</div>
+                    <div class="plot-desc">Quadratic Damping #06</div>
+                </div>
+            </a>
+
+            <a href="plots/full_oscillation/quadratic_damping_07_full_oscillation.png" target="_blank" class="plot-card">
+                <img src="plots/full_oscillation/quadratic_damping_07_full_oscillation.png" alt="Quadratic Damping 07 Full Oscillation" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 07 Full Oscillation</div>
+                    <div class="plot-desc">Quadratic Damping #07</div>
+                </div>
+            </a>
+
+            <a href="plots/full_oscillation/quadratic_damping_08_full_oscillation.png" target="_blank" class="plot-card">
+                <img src="plots/full_oscillation/quadratic_damping_08_full_oscillation.png" alt="Quadratic Damping 08 Full Oscillation" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 08 Full Oscillation</div>
+                    <div class="plot-desc">Quadratic Damping #08</div>
+                </div>
+            </a>
+
+            <a href="plots/full_oscillation/quadratic_damping_09_full_oscillation.png" target="_blank" class="plot-card">
+                <img src="plots/full_oscillation/quadratic_damping_09_full_oscillation.png" alt="Quadratic Damping 09 Full Oscillation" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 09 Full Oscillation</div>
+                    <div class="plot-desc">Quadratic Damping #09</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="category" id="model_comparison">
+        <h2>Model Comparison (1 plots)</h2>
+        <div class="plots-container">
+
+            <a href="plots/model_comparison/quadratic_damping_model_comparison.png" target="_blank" class="plot-card">
+                <img src="plots/model_comparison/quadratic_damping_model_comparison.png" alt="Quadratic Damping Model Comparison" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping Model Comparison</div>
+                    <div class="plot-desc">Quadratic Damping</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="category" id="other">
+        <h2>Other (3 plots)</h2>
+        <div class="plots-container">
+
+            <a href="plots/other/quadratic_damping_analysis.png" target="_blank" class="plot-card">
+                <img src="plots/other/quadratic_damping_analysis.png" alt="Quadratic Damping Analysis" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping Analysis</div>
+                    <div class="plot-desc">Quadratic Damping</div>
+                </div>
+            </a>
+
+            <a href="plots/other/quadratic_damping_full_model_fit.png" target="_blank" class="plot-card">
+                <img src="plots/other/quadratic_damping_full_model_fit.png" alt="Quadratic Damping Full Model Fit" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping Full Model Fit</div>
+                    <div class="plot-desc">Quadratic Damping</div>
+                </div>
+            </a>
+
+            <a href="plots/other/quadratic_damping_observed_vs_predicted.png" target="_blank" class="plot-card">
+                <img src="plots/other/quadratic_damping_observed_vs_predicted.png" alt="Quadratic Damping Observed Vs Predicted" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping Observed Vs Predicted</div>
+                    <div class="plot-desc">Quadratic Damping</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="category" id="raw_data">
+        <h2>Raw Data (13 plots)</h2>
+        <div class="plots-container">
+
+            <a href="plots/raw_data/linear_damping_01_raw_data.png" target="_blank" class="plot-card">
+                <img src="plots/raw_data/linear_damping_01_raw_data.png" alt="Linear Damping 01 Raw Data" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 01 Raw Data</div>
+                    <div class="plot-desc">Linear Damping #01</div>
+                </div>
+            </a>
+
+            <a href="plots/raw_data/linear_damping_02_raw_data.png" target="_blank" class="plot-card">
+                <img src="plots/raw_data/linear_damping_02_raw_data.png" alt="Linear Damping 02 Raw Data" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 02 Raw Data</div>
+                    <div class="plot-desc">Linear Damping #02</div>
+                </div>
+            </a>
+
+            <a href="plots/raw_data/linear_damping_07_raw_data.png" target="_blank" class="plot-card">
+                <img src="plots/raw_data/linear_damping_07_raw_data.png" alt="Linear Damping 07 Raw Data" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 07 Raw Data</div>
+                    <div class="plot-desc">Linear Damping #07</div>
+                </div>
+            </a>
+
+            <a href="plots/raw_data/linear_damping_08_raw_data.png" target="_blank" class="plot-card">
+                <img src="plots/raw_data/linear_damping_08_raw_data.png" alt="Linear Damping 08 Raw Data" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 08 Raw Data</div>
+                    <div class="plot-desc">Linear Damping #08</div>
+                </div>
+            </a>
+
+            <a href="plots/raw_data/quadratic_damping_02_raw_data.png" target="_blank" class="plot-card">
+                <img src="plots/raw_data/quadratic_damping_02_raw_data.png" alt="Quadratic Damping 02 Raw Data" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 02 Raw Data</div>
+                    <div class="plot-desc">Quadratic Damping #02</div>
+                </div>
+            </a>
+
+            <a href="plots/raw_data/quadratic_damping_03_raw_data.png" target="_blank" class="plot-card">
+                <img src="plots/raw_data/quadratic_damping_03_raw_data.png" alt="Quadratic Damping 03 Raw Data" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 03 Raw Data</div>
+                    <div class="plot-desc">Quadratic Damping #03</div>
+                </div>
+            </a>
+
+            <a href="plots/raw_data/quadratic_damping_04_raw_data.png" target="_blank" class="plot-card">
+                <img src="plots/raw_data/quadratic_damping_04_raw_data.png" alt="Quadratic Damping 04 Raw Data" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 04 Raw Data</div>
+                    <div class="plot-desc">Quadratic Damping #04</div>
+                </div>
+            </a>
+
+            <a href="plots/raw_data/quadratic_damping_05_raw_data.png" target="_blank" class="plot-card">
+                <img src="plots/raw_data/quadratic_damping_05_raw_data.png" alt="Quadratic Damping 05 Raw Data" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 05 Raw Data</div>
+                    <div class="plot-desc">Quadratic Damping #05</div>
+                </div>
+            </a>
+
+            <a href="plots/raw_data/quadratic_damping_06_raw_data.png" target="_blank" class="plot-card">
+                <img src="plots/raw_data/quadratic_damping_06_raw_data.png" alt="Quadratic Damping 06 Raw Data" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 06 Raw Data</div>
+                    <div class="plot-desc">Quadratic Damping #06</div>
+                </div>
+            </a>
+
+            <a href="plots/raw_data/quadratic_damping_07_raw_data.png" target="_blank" class="plot-card">
+                <img src="plots/raw_data/quadratic_damping_07_raw_data.png" alt="Quadratic Damping 07 Raw Data" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 07 Raw Data</div>
+                    <div class="plot-desc">Quadratic Damping #07</div>
+                </div>
+            </a>
+
+            <a href="plots/raw_data/quadratic_damping_08_raw_data.png" target="_blank" class="plot-card">
+                <img src="plots/raw_data/quadratic_damping_08_raw_data.png" alt="Quadratic Damping 08 Raw Data" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 08 Raw Data</div>
+                    <div class="plot-desc">Quadratic Damping #08</div>
+                </div>
+            </a>
+
+            <a href="plots/raw_data/quadratic_damping_09_raw_data.png" target="_blank" class="plot-card">
+                <img src="plots/raw_data/quadratic_damping_09_raw_data.png" alt="Quadratic Damping 09 Raw Data" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 09 Raw Data</div>
+                    <div class="plot-desc">Quadratic Damping #09</div>
+                </div>
+            </a>
+
+            <a href="plots/raw_data/quadratic_damping_raw_data.png" target="_blank" class="plot-card">
+                <img src="plots/raw_data/quadratic_damping_raw_data.png" alt="Quadratic Damping Raw Data" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping Raw Data</div>
+                    <div class="plot-desc">Quadratic Damping</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="category" id="residuals">
+        <h2>Residuals (14 plots)</h2>
+        <div class="plots-container">
+
+            <a href="plots/residuals/linear_damping_01_residuals.png" target="_blank" class="plot-card">
+                <img src="plots/residuals/linear_damping_01_residuals.png" alt="Linear Damping 01 Residuals" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 01 Residuals</div>
+                    <div class="plot-desc">Linear Damping #01</div>
+                </div>
+            </a>
+
+            <a href="plots/residuals/linear_damping_02_residuals.png" target="_blank" class="plot-card">
+                <img src="plots/residuals/linear_damping_02_residuals.png" alt="Linear Damping 02 Residuals" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 02 Residuals</div>
+                    <div class="plot-desc">Linear Damping #02</div>
+                </div>
+            </a>
+
+            <a href="plots/residuals/linear_damping_07_residuals.png" target="_blank" class="plot-card">
+                <img src="plots/residuals/linear_damping_07_residuals.png" alt="Linear Damping 07 Residuals" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 07 Residuals</div>
+                    <div class="plot-desc">Linear Damping #07</div>
+                </div>
+            </a>
+
+            <a href="plots/residuals/linear_damping_08_residuals.png" target="_blank" class="plot-card">
+                <img src="plots/residuals/linear_damping_08_residuals.png" alt="Linear Damping 08 Residuals" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Linear Damping 08 Residuals</div>
+                    <div class="plot-desc">Linear Damping #08</div>
+                </div>
+            </a>
+
+            <a href="plots/residuals/quadratic_damping_02_residuals.png" target="_blank" class="plot-card">
+                <img src="plots/residuals/quadratic_damping_02_residuals.png" alt="Quadratic Damping 02 Residuals" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 02 Residuals</div>
+                    <div class="plot-desc">Quadratic Damping #02</div>
+                </div>
+            </a>
+
+            <a href="plots/residuals/quadratic_damping_03_residuals.png" target="_blank" class="plot-card">
+                <img src="plots/residuals/quadratic_damping_03_residuals.png" alt="Quadratic Damping 03 Residuals" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 03 Residuals</div>
+                    <div class="plot-desc">Quadratic Damping #03</div>
+                </div>
+            </a>
+
+            <a href="plots/residuals/quadratic_damping_04_residuals.png" target="_blank" class="plot-card">
+                <img src="plots/residuals/quadratic_damping_04_residuals.png" alt="Quadratic Damping 04 Residuals" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 04 Residuals</div>
+                    <div class="plot-desc">Quadratic Damping #04</div>
+                </div>
+            </a>
+
+            <a href="plots/residuals/quadratic_damping_05_residuals.png" target="_blank" class="plot-card">
+                <img src="plots/residuals/quadratic_damping_05_residuals.png" alt="Quadratic Damping 05 Residuals" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 05 Residuals</div>
+                    <div class="plot-desc">Quadratic Damping #05</div>
+                </div>
+            </a>
+
+            <a href="plots/residuals/quadratic_damping_06_residuals.png" target="_blank" class="plot-card">
+                <img src="plots/residuals/quadratic_damping_06_residuals.png" alt="Quadratic Damping 06 Residuals" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 06 Residuals</div>
+                    <div class="plot-desc">Quadratic Damping #06</div>
+                </div>
+            </a>
+
+            <a href="plots/residuals/quadratic_damping_07_residuals.png" target="_blank" class="plot-card">
+                <img src="plots/residuals/quadratic_damping_07_residuals.png" alt="Quadratic Damping 07 Residuals" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 07 Residuals</div>
+                    <div class="plot-desc">Quadratic Damping #07</div>
+                </div>
+            </a>
+
+            <a href="plots/residuals/quadratic_damping_08_residuals.png" target="_blank" class="plot-card">
+                <img src="plots/residuals/quadratic_damping_08_residuals.png" alt="Quadratic Damping 08 Residuals" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 08 Residuals</div>
+                    <div class="plot-desc">Quadratic Damping #08</div>
+                </div>
+            </a>
+
+            <a href="plots/residuals/quadratic_damping_09_residuals.png" target="_blank" class="plot-card">
+                <img src="plots/residuals/quadratic_damping_09_residuals.png" alt="Quadratic Damping 09 Residuals" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping 09 Residuals</div>
+                    <div class="plot-desc">Quadratic Damping #09</div>
+                </div>
+            </a>
+
+            <a href="plots/residuals/quadratic_damping_residuals.png" target="_blank" class="plot-card">
+                <img src="plots/residuals/quadratic_damping_residuals.png" alt="Quadratic Damping Residuals" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping Residuals</div>
+                    <div class="plot-desc">Quadratic Damping</div>
+                </div>
+            </a>
+
+            <a href="plots/residuals/quadratic_damping_residuals_comparison.png" target="_blank" class="plot-card">
+                <img src="plots/residuals/quadratic_damping_residuals_comparison.png" alt="Quadratic Damping Residuals Comparison" class="plot-img">
+                <div class="plot-info">
+                    <div class="plot-title">Quadratic Damping Residuals Comparison</div>
+                    <div class="plot-desc">Quadratic Damping</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Generated on 2025-05-09 13:33:12</p>
+        <p>Smorzamento Project - Quadratic and Linear Damping Analysis</p>
+    </footer>
+</body>
+</html>

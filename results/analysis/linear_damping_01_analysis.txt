@@ -1,0 +1,16 @@
+Analysis of molla_durissima_discopieno_14.91945_0.2016_1.csv
+Mass: 0.2016 kg
+
+Quadratic Damping Model Results:
+Initial amplitude (A₀): 0.077349
+Damping parameter (β): 0.896843
+Half-life: 14.4155 seconds
+
+Linear Damping Model Results:
+Initial amplitude (A₀): 0.062710
+Time constant (τ): 39.275626 seconds
+
+Model Comparison:
+R² (Quadratic Damping): 0.984843
+R² (Linear Damping): 0.975902
+

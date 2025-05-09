@@ -1,0 +1,24 @@
+Analysis of data_simulated/molla_dura_discoforato_long_14.92000_0.2016_2.csv
+Mass: 0.2016 kg
+
+Quadratic Damping Model Results:
+Initial amplitude (A₀): 0.117230 ± 0.000118
+Damping parameter (β): 0.453285 ± 0.000600
+Half-life: 18.8187 seconds
+
+Linear Damping Model Results:
+Initial amplitude (A₀): 0.096422 ± 0.000990
+Time constant (τ): 47.042353 ± 0.764115
+
+Model Comparison:
+R² (Quadratic Damping): 0.999705
+R² (Linear Damping): 0.946517
+AIC (Quadratic Damping): -4272.63
+AIC (Linear Damping): -2852.58
+
+Physical Parameters:
+Angular frequency (ω): 8.6027 rad/s
+Frequency (f): 1.3692 Hz
+Period (T): 0.7304 s
+Spring constant (k): 14.9198 N/m
+Quadratic damping coefficient (b): 0.012514 kg/m

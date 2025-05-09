@@ -1,0 +1,16 @@
+Analysis of molla_dura_discoforato_14.92000_0.1500_5.csv
+Mass: 0.15 kg
+
+Quadratic Damping Model Results:
+Initial amplitude (A₀): 0.095193
+Damping parameter (β): 1.415772
+Half-life: 7.4199 seconds
+
+Linear Damping Model Results:
+Initial amplitude (A₀): 0.088305
+Time constant (τ): 12.761626 seconds
+
+Model Comparison:
+R² (Quadratic Damping): 0.999880
+R² (Linear Damping): 0.979462
+

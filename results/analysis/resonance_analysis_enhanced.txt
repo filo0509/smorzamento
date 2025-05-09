@@ -1,0 +1,45 @@
+Enhanced Resonance Analysis Results
+=================================
+
+Resonance Parameters:
+-----------------
+Resonance Frequency (f₀): 1.124015 ± 0.006751 Hz
+FWHM (γ): 0.085678 ± 0.006164 Hz
+Amplitude Parameter (A): 0.00031674 ± 0.00004295
+Quality Factor (Q = f₀/γ): 13.1190
+
+Physical Parameters:
+------------------
+Mass (m): 0.141900 kg
+Angular Frequency (ω₀): 7.062394 rad/s
+Spring Constant (k): 7.077605 N/m
+Damping Coefficient (b): 0.038195 kg/s
+Damping Ratio (ζ): 0.019056
+
+Additional Derived Parameters:
+----------------------------
+Natural Period (T₀ = 2π/ω₀): 0.889668 s
+Critical Damping Coefficient (bcrit = 2√km): 2.004307 kg/s
+Energy Dissipation Rate (P = b·ω₀²·A²/2): 0.023188 W
+
+Lorentzian Fit Summary:
+--------------------
+Fit Function: A / ((f - f₀)² + (γ/2)²)
+R-squared: 0.995681
+RMSE: 0.00320631
+
+Detailed Measurements:
+--------------------
+Freq (Hz) | Amplitude (m) | RMS Amplitude (m) | Filename
+---------------------------------------------------------------------------
+0.8070 | 0.00877138 | 0.01413865 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_0.807hz.csv
+1.0070 | 0.01923092 | 0.01841065 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_1.007hz.csv
+1.1380 | 0.15602299 | 0.17122392 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_1.138hz_ricercarisonanza.csv
+1.2070 | 0.03557111 | 0.02844140 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_1.207hz.csv
+1.4070 | 0.00833727 | 0.01398214 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_1.407hz.csv
+1.6070 | 0.00546330 | 0.01359729 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_1.607hz.csv
+2.0070 | 0.00220104 | 0.01050887 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_2.007hz_2.csv
+2.0070 | 0.00322484 | 0.01165020 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_2.007hz.csv
+
+
+Analysis completed on: 2025-05-09 14:28:04

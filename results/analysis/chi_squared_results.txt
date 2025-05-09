@@ -1,0 +1,9 @@
+Chi-Squared Test Results:
+Method 1 - Using data as uncertainty:
+Chi-squared: 0.2183
+Reduced chi-squared: 0.0007
+Degrees of freedom: 318
+
+Method 2 - Using constant uncertainty (std of residuals):
+Chi-squared: 341.8774
+Reduced chi-squared: 1.0751

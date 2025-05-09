@@ -1,0 +1,2093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damping Analysis Gallery</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts - Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Smorzamento</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../docs/quadratic_vs_linear_damping.md">Documentation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="hero-title display-4 mb-3">Oscillation Analysis Gallery</h1>
+            <p class="hero-subtitle lead mx-auto" style="max-width: 700px;">
+                Visual exploration of linear and quadratic damping in mechanical oscillatory systems
+            </p>
+            
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stats-card">
+                        <div class="h1 mb-2">55</div>
+                        <div class="text-uppercase small">Total Plots</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stats-card">
+                        <div class="h1 mb-2">6</div>
+                        <div class="text-uppercase small">Categories</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stats-card">
+                        <div class="h1 mb-2">16</div>
+                        <div class="text-uppercase small">Linear Damping</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stats-card">
+                        <div class="h1 mb-2">39</div>
+                        <div class="text-uppercase small">Quadratic Damping</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Navigation Pills -->
+            <div class="d-flex justify-content-center mb-4">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-tab">All</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#amplitude_decay-tab">Amplitude Decay</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#full_oscillation-tab">Full Oscillation</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#model_comparison-tab">Model Comparison</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#other-tab">Other</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#raw_data-tab">Raw Data</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#residuals-tab">Residuals</button>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Filter Bar -->
+            <div class="bg-white p-3 rounded shadow-sm mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <h5 class="mb-0">Filter By:</h5>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="d-flex gap-3">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="filterLinear" checked>
+                                <label class="form-check-label" for="filterLinear">
+                                    <span class="badge linear-badge">Linear</span>
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="filterQuadratic" checked>
+                                <label class="form-check-label" for="filterQuadratic">
+                                    <span class="badge quadratic-badge">Quadratic</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- All Plots Tab -->
+                <div class="tab-pane fade show active" id="all-tab">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/amplitude_decay/quadratic_damping_08_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 08 Amplitude Decay">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 08 Amplitude Decay</h5>
+                                    <p class="card-text small text-muted">Amplitude Decay</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/amplitude_decay/quadratic_damping_08_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/amplitude_decay/quadratic_damping_09_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 09 Amplitude Decay">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 09 Amplitude Decay</h5>
+                                    <p class="card-text small text-muted">Amplitude Decay</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/amplitude_decay/quadratic_damping_09_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/amplitude_decay/quadratic_damping_04_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 04 Amplitude Decay">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 04 Amplitude Decay</h5>
+                                    <p class="card-text small text-muted">Amplitude Decay</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/amplitude_decay/quadratic_damping_04_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/amplitude_decay/quadratic_damping_05_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 05 Amplitude Decay">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 05 Amplitude Decay</h5>
+                                    <p class="card-text small text-muted">Amplitude Decay</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/amplitude_decay/quadratic_damping_05_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/amplitude_decay/quadratic_damping_06_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 06 Amplitude Decay">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 06 Amplitude Decay</h5>
+                                    <p class="card-text small text-muted">Amplitude Decay</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/amplitude_decay/quadratic_damping_06_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/amplitude_decay/quadratic_damping_07_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 07 Amplitude Decay">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 07 Amplitude Decay</h5>
+                                    <p class="card-text small text-muted">Amplitude Decay</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/amplitude_decay/quadratic_damping_07_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/amplitude_decay/quadratic_damping_03_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 03 Amplitude Decay">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 03 Amplitude Decay</h5>
+                                    <p class="card-text small text-muted">Amplitude Decay</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/amplitude_decay/quadratic_damping_03_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/amplitude_decay/quadratic_damping_02_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 02 Amplitude Decay">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 02 Amplitude Decay</h5>
+                                    <p class="card-text small text-muted">Amplitude Decay</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/amplitude_decay/quadratic_damping_02_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/amplitude_decay/linear_damping_08_amplitude_decay.png" class="plot-img" alt="Linear Damping 08 Amplitude Decay">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 08 Amplitude Decay</h5>
+                                    <p class="card-text small text-muted">Amplitude Decay</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/amplitude_decay/linear_damping_08_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/amplitude_decay/linear_damping_02_amplitude_decay.png" class="plot-img" alt="Linear Damping 02 Amplitude Decay">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 02 Amplitude Decay</h5>
+                                    <p class="card-text small text-muted">Amplitude Decay</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/amplitude_decay/linear_damping_02_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/amplitude_decay/linear_damping_01_amplitude_decay.png" class="plot-img" alt="Linear Damping 01 Amplitude Decay">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 01 Amplitude Decay</h5>
+                                    <p class="card-text small text-muted">Amplitude Decay</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/amplitude_decay/linear_damping_01_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/amplitude_decay/linear_damping_07_amplitude_decay.png" class="plot-img" alt="Linear Damping 07 Amplitude Decay">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 07 Amplitude Decay</h5>
+                                    <p class="card-text small text-muted">Amplitude Decay</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/amplitude_decay/linear_damping_07_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/full_oscillation/quadratic_damping_05_full_oscillation.png" class="plot-img" alt="Quadratic Damping 05 Full Oscillation">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 05 Full Oscillation</h5>
+                                    <p class="card-text small text-muted">Full Oscillation</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/full_oscillation/quadratic_damping_05_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/full_oscillation/quadratic_damping_04_full_oscillation.png" class="plot-img" alt="Quadratic Damping 04 Full Oscillation">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 04 Full Oscillation</h5>
+                                    <p class="card-text small text-muted">Full Oscillation</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/full_oscillation/quadratic_damping_04_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/full_oscillation/linear_damping_01_full_oscillation.png" class="plot-img" alt="Linear Damping 01 Full Oscillation">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 01 Full Oscillation</h5>
+                                    <p class="card-text small text-muted">Full Oscillation</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/full_oscillation/linear_damping_01_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/full_oscillation/linear_damping_02_full_oscillation.png" class="plot-img" alt="Linear Damping 02 Full Oscillation">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 02 Full Oscillation</h5>
+                                    <p class="card-text small text-muted">Full Oscillation</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/full_oscillation/linear_damping_02_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/full_oscillation/linear_damping_07_full_oscillation.png" class="plot-img" alt="Linear Damping 07 Full Oscillation">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 07 Full Oscillation</h5>
+                                    <p class="card-text small text-muted">Full Oscillation</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/full_oscillation/linear_damping_07_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/full_oscillation/linear_damping_08_full_oscillation.png" class="plot-img" alt="Linear Damping 08 Full Oscillation">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 08 Full Oscillation</h5>
+                                    <p class="card-text small text-muted">Full Oscillation</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/full_oscillation/linear_damping_08_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/full_oscillation/quadratic_damping_02_full_oscillation.png" class="plot-img" alt="Quadratic Damping 02 Full Oscillation">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 02 Full Oscillation</h5>
+                                    <p class="card-text small text-muted">Full Oscillation</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/full_oscillation/quadratic_damping_02_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/full_oscillation/quadratic_damping_07_full_oscillation.png" class="plot-img" alt="Quadratic Damping 07 Full Oscillation">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 07 Full Oscillation</h5>
+                                    <p class="card-text small text-muted">Full Oscillation</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/full_oscillation/quadratic_damping_07_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/full_oscillation/quadratic_damping_08_full_oscillation.png" class="plot-img" alt="Quadratic Damping 08 Full Oscillation">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 08 Full Oscillation</h5>
+                                    <p class="card-text small text-muted">Full Oscillation</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/full_oscillation/quadratic_damping_08_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/full_oscillation/quadratic_damping_09_full_oscillation.png" class="plot-img" alt="Quadratic Damping 09 Full Oscillation">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 09 Full Oscillation</h5>
+                                    <p class="card-text small text-muted">Full Oscillation</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/full_oscillation/quadratic_damping_09_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/full_oscillation/quadratic_damping_03_full_oscillation.png" class="plot-img" alt="Quadratic Damping 03 Full Oscillation">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 03 Full Oscillation</h5>
+                                    <p class="card-text small text-muted">Full Oscillation</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/full_oscillation/quadratic_damping_03_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/full_oscillation/quadratic_damping_06_full_oscillation.png" class="plot-img" alt="Quadratic Damping 06 Full Oscillation">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 06 Full Oscillation</h5>
+                                    <p class="card-text small text-muted">Full Oscillation</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/full_oscillation/quadratic_damping_06_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/model_comparison/quadratic_damping_model_comparison.png" class="plot-img" alt="Quadratic Damping Model Comparison">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping Model Comparison</h5>
+                                    <p class="card-text small text-muted">Model Comparison</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/model_comparison/quadratic_damping_model_comparison.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/other/quadratic_damping_full_model_fit.png" class="plot-img" alt="Quadratic Damping Full Model Fit">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping Full Model Fit</h5>
+                                    <p class="card-text small text-muted">Other</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/other/quadratic_damping_full_model_fit.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/other/quadratic_damping_observed_vs_predicted.png" class="plot-img" alt="Quadratic Damping Observed Vs Predicted">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping Observed Vs Predicted</h5>
+                                    <p class="card-text small text-muted">Other</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/other/quadratic_damping_observed_vs_predicted.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/other/quadratic_damping_analysis.png" class="plot-img" alt="Quadratic Damping Analysis">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping Analysis</h5>
+                                    <p class="card-text small text-muted">Other</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/other/quadratic_damping_analysis.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/raw_data/quadratic_damping_08_raw_data.png" class="plot-img" alt="Quadratic Damping 08 Raw Data">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 08 Raw Data</h5>
+                                    <p class="card-text small text-muted">Raw Data</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/raw_data/quadratic_damping_08_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/raw_data/quadratic_damping_09_raw_data.png" class="plot-img" alt="Quadratic Damping 09 Raw Data">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 09 Raw Data</h5>
+                                    <p class="card-text small text-muted">Raw Data</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/raw_data/quadratic_damping_09_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/raw_data/linear_damping_02_raw_data.png" class="plot-img" alt="Linear Damping 02 Raw Data">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 02 Raw Data</h5>
+                                    <p class="card-text small text-muted">Raw Data</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/raw_data/linear_damping_02_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/raw_data/quadratic_damping_raw_data.png" class="plot-img" alt="Quadratic Damping Raw Data">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping Raw Data</h5>
+                                    <p class="card-text small text-muted">Raw Data</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/raw_data/quadratic_damping_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/raw_data/quadratic_damping_04_raw_data.png" class="plot-img" alt="Quadratic Damping 04 Raw Data">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 04 Raw Data</h5>
+                                    <p class="card-text small text-muted">Raw Data</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/raw_data/quadratic_damping_04_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/raw_data/linear_damping_08_raw_data.png" class="plot-img" alt="Linear Damping 08 Raw Data">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 08 Raw Data</h5>
+                                    <p class="card-text small text-muted">Raw Data</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/raw_data/linear_damping_08_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/raw_data/quadratic_damping_03_raw_data.png" class="plot-img" alt="Quadratic Damping 03 Raw Data">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 03 Raw Data</h5>
+                                    <p class="card-text small text-muted">Raw Data</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/raw_data/quadratic_damping_03_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/raw_data/quadratic_damping_02_raw_data.png" class="plot-img" alt="Quadratic Damping 02 Raw Data">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 02 Raw Data</h5>
+                                    <p class="card-text small text-muted">Raw Data</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/raw_data/quadratic_damping_02_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/raw_data/quadratic_damping_05_raw_data.png" class="plot-img" alt="Quadratic Damping 05 Raw Data">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 05 Raw Data</h5>
+                                    <p class="card-text small text-muted">Raw Data</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/raw_data/quadratic_damping_05_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/raw_data/quadratic_damping_07_raw_data.png" class="plot-img" alt="Quadratic Damping 07 Raw Data">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 07 Raw Data</h5>
+                                    <p class="card-text small text-muted">Raw Data</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/raw_data/quadratic_damping_07_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/raw_data/quadratic_damping_06_raw_data.png" class="plot-img" alt="Quadratic Damping 06 Raw Data">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 06 Raw Data</h5>
+                                    <p class="card-text small text-muted">Raw Data</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/raw_data/quadratic_damping_06_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/raw_data/linear_damping_07_raw_data.png" class="plot-img" alt="Linear Damping 07 Raw Data">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 07 Raw Data</h5>
+                                    <p class="card-text small text-muted">Raw Data</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/raw_data/linear_damping_07_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/raw_data/linear_damping_01_raw_data.png" class="plot-img" alt="Linear Damping 01 Raw Data">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 01 Raw Data</h5>
+                                    <p class="card-text small text-muted">Raw Data</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/raw_data/linear_damping_01_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/residuals/quadratic_damping_residuals_comparison.png" class="plot-img" alt="Quadratic Damping Residuals Comparison">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping Residuals Comparison</h5>
+                                    <p class="card-text small text-muted">Residuals</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/residuals/quadratic_damping_residuals_comparison.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/residuals/quadratic_damping_03_residuals.png" class="plot-img" alt="Quadratic Damping 03 Residuals">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 03 Residuals</h5>
+                                    <p class="card-text small text-muted">Residuals</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/residuals/quadratic_damping_03_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/residuals/quadratic_damping_07_residuals.png" class="plot-img" alt="Quadratic Damping 07 Residuals">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 07 Residuals</h5>
+                                    <p class="card-text small text-muted">Residuals</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/residuals/quadratic_damping_07_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/residuals/quadratic_damping_04_residuals.png" class="plot-img" alt="Quadratic Damping 04 Residuals">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 04 Residuals</h5>
+                                    <p class="card-text small text-muted">Residuals</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/residuals/quadratic_damping_04_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/residuals/linear_damping_08_residuals.png" class="plot-img" alt="Linear Damping 08 Residuals">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 08 Residuals</h5>
+                                    <p class="card-text small text-muted">Residuals</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/residuals/linear_damping_08_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/residuals/linear_damping_02_residuals.png" class="plot-img" alt="Linear Damping 02 Residuals">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 02 Residuals</h5>
+                                    <p class="card-text small text-muted">Residuals</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/residuals/linear_damping_02_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/residuals/linear_damping_01_residuals.png" class="plot-img" alt="Linear Damping 01 Residuals">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 01 Residuals</h5>
+                                    <p class="card-text small text-muted">Residuals</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/residuals/linear_damping_01_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/residuals/quadratic_damping_09_residuals.png" class="plot-img" alt="Quadratic Damping 09 Residuals">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 09 Residuals</h5>
+                                    <p class="card-text small text-muted">Residuals</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/residuals/quadratic_damping_09_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/residuals/quadratic_damping_08_residuals.png" class="plot-img" alt="Quadratic Damping 08 Residuals">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 08 Residuals</h5>
+                                    <p class="card-text small text-muted">Residuals</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/residuals/quadratic_damping_08_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/residuals/linear_damping_07_residuals.png" class="plot-img" alt="Linear Damping 07 Residuals">
+                                    <span class="badge plot-badge linear-badge">Linear</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Linear Damping 07 Residuals</h5>
+                                    <p class="card-text small text-muted">Residuals</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/residuals/linear_damping_07_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/residuals/quadratic_damping_05_residuals.png" class="plot-img" alt="Quadratic Damping 05 Residuals">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 05 Residuals</h5>
+                                    <p class="card-text small text-muted">Residuals</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/residuals/quadratic_damping_05_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/residuals/quadratic_damping_residuals.png" class="plot-img" alt="Quadratic Damping Residuals">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping Residuals</h5>
+                                    <p class="card-text small text-muted">Residuals</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/residuals/quadratic_damping_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/residuals/quadratic_damping_06_residuals.png" class="plot-img" alt="Quadratic Damping 06 Residuals">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 06 Residuals</h5>
+                                    <p class="card-text small text-muted">Residuals</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/residuals/quadratic_damping_06_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                            <div class="card plot-card h-100">
+                                <div class="plot-img-container">
+                                    <img src="../plots/residuals/quadratic_damping_02_residuals.png" class="plot-img" alt="Quadratic Damping 02 Residuals">
+                                    <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fs-6">Quadratic Damping 02 Residuals</h5>
+                                    <p class="card-text small text-muted">Residuals</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0">
+                                    <a href="../plots/residuals/quadratic_damping_02_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                        View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Amplitude Decay Tab -->
+                <div class="tab-pane fade" id="amplitude_decay-tab">
+                    <div class="category-section mb-4">
+                        <div class="p-4 border-bottom">
+                            <h2 class="h4 mb-3">
+                                <i class="bi bi-reception-4 me-2"></i>
+                                Amplitude Decay
+                            </h2>
+                            <p class="text-muted mb-0">Analysis of oscillation amplitude reduction over time across different models.</p>
+                        </div>
+                        <div class="p-4">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/amplitude_decay/quadratic_damping_08_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 08 Amplitude Decay">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 08 Amplitude Decay</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/amplitude_decay/quadratic_damping_08_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/amplitude_decay/quadratic_damping_09_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 09 Amplitude Decay">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 09 Amplitude Decay</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/amplitude_decay/quadratic_damping_09_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/amplitude_decay/quadratic_damping_04_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 04 Amplitude Decay">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 04 Amplitude Decay</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/amplitude_decay/quadratic_damping_04_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/amplitude_decay/quadratic_damping_05_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 05 Amplitude Decay">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 05 Amplitude Decay</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/amplitude_decay/quadratic_damping_05_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/amplitude_decay/quadratic_damping_06_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 06 Amplitude Decay">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 06 Amplitude Decay</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/amplitude_decay/quadratic_damping_06_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/amplitude_decay/quadratic_damping_07_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 07 Amplitude Decay">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 07 Amplitude Decay</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/amplitude_decay/quadratic_damping_07_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/amplitude_decay/quadratic_damping_03_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 03 Amplitude Decay">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 03 Amplitude Decay</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/amplitude_decay/quadratic_damping_03_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/amplitude_decay/quadratic_damping_02_amplitude_decay.png" class="plot-img" alt="Quadratic Damping 02 Amplitude Decay">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 02 Amplitude Decay</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/amplitude_decay/quadratic_damping_02_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/amplitude_decay/linear_damping_08_amplitude_decay.png" class="plot-img" alt="Linear Damping 08 Amplitude Decay">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 08 Amplitude Decay</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/amplitude_decay/linear_damping_08_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/amplitude_decay/linear_damping_02_amplitude_decay.png" class="plot-img" alt="Linear Damping 02 Amplitude Decay">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 02 Amplitude Decay</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/amplitude_decay/linear_damping_02_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/amplitude_decay/linear_damping_01_amplitude_decay.png" class="plot-img" alt="Linear Damping 01 Amplitude Decay">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 01 Amplitude Decay</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/amplitude_decay/linear_damping_01_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/amplitude_decay/linear_damping_07_amplitude_decay.png" class="plot-img" alt="Linear Damping 07 Amplitude Decay">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 07 Amplitude Decay</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/amplitude_decay/linear_damping_07_amplitude_decay.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Full Oscillation Tab -->
+                <div class="tab-pane fade" id="full_oscillation-tab">
+                    <div class="category-section mb-4">
+                        <div class="p-4 border-bottom">
+                            <h2 class="h4 mb-3">
+                                <i class="bi bi-activity me-2"></i>
+                                Full Oscillation
+                            </h2>
+                            <p class="text-muted mb-0">Complete oscillation visualizations with the decay envelope.</p>
+                        </div>
+                        <div class="p-4">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/full_oscillation/quadratic_damping_05_full_oscillation.png" class="plot-img" alt="Quadratic Damping 05 Full Oscillation">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 05 Full Oscillation</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/full_oscillation/quadratic_damping_05_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/full_oscillation/quadratic_damping_04_full_oscillation.png" class="plot-img" alt="Quadratic Damping 04 Full Oscillation">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 04 Full Oscillation</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/full_oscillation/quadratic_damping_04_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/full_oscillation/linear_damping_01_full_oscillation.png" class="plot-img" alt="Linear Damping 01 Full Oscillation">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 01 Full Oscillation</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/full_oscillation/linear_damping_01_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/full_oscillation/linear_damping_02_full_oscillation.png" class="plot-img" alt="Linear Damping 02 Full Oscillation">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 02 Full Oscillation</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/full_oscillation/linear_damping_02_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/full_oscillation/linear_damping_07_full_oscillation.png" class="plot-img" alt="Linear Damping 07 Full Oscillation">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 07 Full Oscillation</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/full_oscillation/linear_damping_07_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/full_oscillation/linear_damping_08_full_oscillation.png" class="plot-img" alt="Linear Damping 08 Full Oscillation">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 08 Full Oscillation</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/full_oscillation/linear_damping_08_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/full_oscillation/quadratic_damping_02_full_oscillation.png" class="plot-img" alt="Quadratic Damping 02 Full Oscillation">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 02 Full Oscillation</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/full_oscillation/quadratic_damping_02_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/full_oscillation/quadratic_damping_07_full_oscillation.png" class="plot-img" alt="Quadratic Damping 07 Full Oscillation">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 07 Full Oscillation</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/full_oscillation/quadratic_damping_07_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/full_oscillation/quadratic_damping_08_full_oscillation.png" class="plot-img" alt="Quadratic Damping 08 Full Oscillation">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 08 Full Oscillation</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/full_oscillation/quadratic_damping_08_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/full_oscillation/quadratic_damping_09_full_oscillation.png" class="plot-img" alt="Quadratic Damping 09 Full Oscillation">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 09 Full Oscillation</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/full_oscillation/quadratic_damping_09_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/full_oscillation/quadratic_damping_03_full_oscillation.png" class="plot-img" alt="Quadratic Damping 03 Full Oscillation">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 03 Full Oscillation</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/full_oscillation/quadratic_damping_03_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/full_oscillation/quadratic_damping_06_full_oscillation.png" class="plot-img" alt="Quadratic Damping 06 Full Oscillation">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 06 Full Oscillation</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/full_oscillation/quadratic_damping_06_full_oscillation.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Model Comparison Tab -->
+                <div class="tab-pane fade" id="model_comparison-tab">
+                    <div class="category-section mb-4">
+                        <div class="p-4 border-bottom">
+                            <h2 class="h4 mb-3">
+                                <i class="bi bi-check2-square me-2"></i>
+                                Model Comparison
+                            </h2>
+                            <p class="text-muted mb-0">Direct comparison between linear and quadratic damping models.</p>
+                        </div>
+                        <div class="p-4">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/model_comparison/quadratic_damping_model_comparison.png" class="plot-img" alt="Quadratic Damping Model Comparison">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping Model Comparison</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/model_comparison/quadratic_damping_model_comparison.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Other Tab -->
+                <div class="tab-pane fade" id="other-tab">
+                    <div class="category-section mb-4">
+                        <div class="p-4 border-bottom">
+                            <h2 class="h4 mb-3">
+                                <i class="bi bi-pie-chart-fill me-2"></i>
+                                Other
+                            </h2>
+                            <p class="text-muted mb-0">Additional visualization and analysis plots.</p>
+                        </div>
+                        <div class="p-4">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/other/quadratic_damping_full_model_fit.png" class="plot-img" alt="Quadratic Damping Full Model Fit">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping Full Model Fit</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/other/quadratic_damping_full_model_fit.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/other/quadratic_damping_observed_vs_predicted.png" class="plot-img" alt="Quadratic Damping Observed Vs Predicted">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping Observed Vs Predicted</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/other/quadratic_damping_observed_vs_predicted.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/other/quadratic_damping_analysis.png" class="plot-img" alt="Quadratic Damping Analysis">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping Analysis</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/other/quadratic_damping_analysis.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Raw Data Tab -->
+                <div class="tab-pane fade" id="raw_data-tab">
+                    <div class="category-section mb-4">
+                        <div class="p-4 border-bottom">
+                            <h2 class="h4 mb-3">
+                                <i class="bi bi-graph-up me-2"></i>
+                                Raw Data
+                            </h2>
+                            <p class="text-muted mb-0">Time series data showing position, velocity, and acceleration measurements.</p>
+                        </div>
+                        <div class="p-4">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/raw_data/quadratic_damping_08_raw_data.png" class="plot-img" alt="Quadratic Damping 08 Raw Data">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 08 Raw Data</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/raw_data/quadratic_damping_08_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/raw_data/quadratic_damping_09_raw_data.png" class="plot-img" alt="Quadratic Damping 09 Raw Data">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 09 Raw Data</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/raw_data/quadratic_damping_09_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/raw_data/linear_damping_02_raw_data.png" class="plot-img" alt="Linear Damping 02 Raw Data">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 02 Raw Data</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/raw_data/linear_damping_02_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/raw_data/quadratic_damping_raw_data.png" class="plot-img" alt="Quadratic Damping Raw Data">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping Raw Data</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/raw_data/quadratic_damping_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/raw_data/quadratic_damping_04_raw_data.png" class="plot-img" alt="Quadratic Damping 04 Raw Data">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 04 Raw Data</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/raw_data/quadratic_damping_04_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/raw_data/linear_damping_08_raw_data.png" class="plot-img" alt="Linear Damping 08 Raw Data">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 08 Raw Data</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/raw_data/linear_damping_08_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/raw_data/quadratic_damping_03_raw_data.png" class="plot-img" alt="Quadratic Damping 03 Raw Data">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 03 Raw Data</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/raw_data/quadratic_damping_03_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/raw_data/quadratic_damping_02_raw_data.png" class="plot-img" alt="Quadratic Damping 02 Raw Data">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 02 Raw Data</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/raw_data/quadratic_damping_02_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/raw_data/quadratic_damping_05_raw_data.png" class="plot-img" alt="Quadratic Damping 05 Raw Data">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 05 Raw Data</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/raw_data/quadratic_damping_05_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/raw_data/quadratic_damping_07_raw_data.png" class="plot-img" alt="Quadratic Damping 07 Raw Data">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 07 Raw Data</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/raw_data/quadratic_damping_07_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/raw_data/quadratic_damping_06_raw_data.png" class="plot-img" alt="Quadratic Damping 06 Raw Data">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 06 Raw Data</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/raw_data/quadratic_damping_06_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/raw_data/linear_damping_07_raw_data.png" class="plot-img" alt="Linear Damping 07 Raw Data">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 07 Raw Data</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/raw_data/linear_damping_07_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/raw_data/linear_damping_01_raw_data.png" class="plot-img" alt="Linear Damping 01 Raw Data">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 01 Raw Data</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/raw_data/linear_damping_01_raw_data.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Residuals Tab -->
+                <div class="tab-pane fade" id="residuals-tab">
+                    <div class="category-section mb-4">
+                        <div class="p-4 border-bottom">
+                            <h2 class="h4 mb-3">
+                                <i class="bi bi-distribute-vertical me-2"></i>
+                                Residuals
+                            </h2>
+                            <p class="text-muted mb-0">Error analysis between measured data and model predictions.</p>
+                        </div>
+                        <div class="p-4">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/residuals/quadratic_damping_residuals_comparison.png" class="plot-img" alt="Quadratic Damping Residuals Comparison">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping Residuals Comparison</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/residuals/quadratic_damping_residuals_comparison.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/residuals/quadratic_damping_03_residuals.png" class="plot-img" alt="Quadratic Damping 03 Residuals">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 03 Residuals</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/residuals/quadratic_damping_03_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/residuals/quadratic_damping_07_residuals.png" class="plot-img" alt="Quadratic Damping 07 Residuals">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 07 Residuals</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/residuals/quadratic_damping_07_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/residuals/quadratic_damping_04_residuals.png" class="plot-img" alt="Quadratic Damping 04 Residuals">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 04 Residuals</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/residuals/quadratic_damping_04_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/residuals/linear_damping_08_residuals.png" class="plot-img" alt="Linear Damping 08 Residuals">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 08 Residuals</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/residuals/linear_damping_08_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/residuals/linear_damping_02_residuals.png" class="plot-img" alt="Linear Damping 02 Residuals">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 02 Residuals</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/residuals/linear_damping_02_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/residuals/linear_damping_01_residuals.png" class="plot-img" alt="Linear Damping 01 Residuals">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 01 Residuals</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/residuals/linear_damping_01_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/residuals/quadratic_damping_09_residuals.png" class="plot-img" alt="Quadratic Damping 09 Residuals">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 09 Residuals</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/residuals/quadratic_damping_09_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/residuals/quadratic_damping_08_residuals.png" class="plot-img" alt="Quadratic Damping 08 Residuals">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 08 Residuals</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/residuals/quadratic_damping_08_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="linear">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/residuals/linear_damping_07_residuals.png" class="plot-img" alt="Linear Damping 07 Residuals">
+                                            <span class="badge plot-badge linear-badge">Linear</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Linear Damping 07 Residuals</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/residuals/linear_damping_07_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/residuals/quadratic_damping_05_residuals.png" class="plot-img" alt="Quadratic Damping 05 Residuals">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 05 Residuals</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/residuals/quadratic_damping_05_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/residuals/quadratic_damping_residuals.png" class="plot-img" alt="Quadratic Damping Residuals">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping Residuals</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/residuals/quadratic_damping_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/residuals/quadratic_damping_06_residuals.png" class="plot-img" alt="Quadratic Damping 06 Residuals">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 06 Residuals</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/residuals/quadratic_damping_06_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 plot-item" data-type="quadratic">
+                                    <div class="card plot-card h-100">
+                                        <div class="plot-img-container">
+                                            <img src="../plots/residuals/quadratic_damping_02_residuals.png" class="plot-img" alt="Quadratic Damping 02 Residuals">
+                                            <span class="badge plot-badge quadratic-badge">Quadratic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title fs-6">Quadratic Damping 02 Residuals</h5>
+                                        </div>
+                                        <div class="card-footer bg-white border-top-0">
+                                            <a href="../plots/residuals/quadratic_damping_02_residuals.png" class="btn btn-sm btn-primary w-100" target="_blank">
+                                                View Full Size <i class="bi bi-arrows-fullscreen"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 mb-4">
+                    <h5 class="mb-4 fw-bold">Smorzamento Project</h5>
+                    <p class="mb-4 opacity-75">
+                        A comprehensive analysis system for studying damped mechanical oscillations, 
+                        featuring both linear and quadratic damping models.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-4 fw-bold">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50">Home</a></li>
+                        <li class="mb-2"><a href="../../docs/quadratic_damping.md" class="text-white-50">Documentation</a></li>
+                        <li class="mb-2"><a href="../../docs/quadratic_vs_linear_damping.md" class="text-white-50">Model Comparison</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="mb-4 fw-bold">About This Gallery</h5>
+                    <p class="mb-4 opacity-75">
+                        This visualization gallery provides intuitive access to analysis results from
+                        experiments investigating mechanical oscillations with different damping mechanisms.
+                    </p>
+                    <p class="mb-0 opacity-75">
+                        <i class="bi bi-calendar-event me-2"></i> Generated on May 09, 2025
+                    </p>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4 mt-4 text-center opacity-50">
+                <p class="mb-0">&copy; 2025 Smorzamento Project. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Script -->
+    <script src="js/gallery.js"></script>
+</body>
+</html>

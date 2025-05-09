@@ -1,0 +1,26 @@
+Resonance Analysis Results
+==========================
+
+Resonance Frequency (f₀): 1.127293 ± 0.024815 Hz
+Width Parameter (γ): 0.041354 ± 0.019220 Hz
+Amplitude Parameter (A): 0.000101 ± 0.000054
+Quality Factor (Q = f₀/γ): 27.2595
+
+Damped Harmonic Oscillator Parameters:
+Mass (m): 0.141900 kg
+Angular Frequency (ω₀): 7.082988 rad/s
+Spring Constant (k): 7.118941 N/m
+Damping Coefficient (b): 0.036871 kg/s
+Damping Ratio (ζ): 0.018342
+
+Detailed Measurements:
+Frequency (Hz) | Amplitude (m) | Filename
+------------------------------------------------------------
+0.8070 | 0.007257 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_0.807hz.csv
+1.0070 | 0.005295 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_1.007hz.csv
+1.1380 | 0.186591 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_1.138hz_ricercarisonanza.csv
+1.2070 | 0.014189 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_1.207hz.csv
+1.4070 | 0.009434 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_1.407hz.csv
+1.6070 | 0.005000 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_1.607hz.csv
+2.0070 | 0.005000 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_2.007hz_2.csv
+2.0070 | 0.005000 | molla_dura_discopieno_battimenti_0.1419kg_frequenza_2.007hz.csv
